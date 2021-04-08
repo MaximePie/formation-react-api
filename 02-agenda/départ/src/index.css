@@ -1,0 +1,15 @@
+.card-list {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 300px 300px 300px;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+}
+.card-list .card {
+}
+
+.card-body {
+}
+.card-body .card-text {
+  flex-grow: 1; /* Le texte prend un maximum de hauteur afin de pousser le bouton vers le bas */
+}

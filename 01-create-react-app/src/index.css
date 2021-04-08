@@ -1,0 +1,6 @@
+/* Ici le CSS de l'application */
+
+main {
+    background: linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d);
+    height: 100vh;
+}
