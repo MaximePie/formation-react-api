@@ -116,3 +116,110 @@ Dans `templates/base.html.twig`
 Lancer l'application BACK avec `symfony server:start`, ou `MAMP, XAMP, etc`
 Lancer l'application front avec `npm run watch`
 
+
+
+## Installer un système de routage sur React avec Symfony 
+
+### Etape 1, séparer nos routes d'affichage et nos routes d'API
+
+Ici, on décide que les routes d'affichages seront sous la forme `/maRoute`
+
+Les routes qui fournissent les données seront sous la forme `/api/maRoute`
+
+Cela permet à Symfony de faire la différence entre les deux. 
+
+### Etape 1, autoriser la navigation côté back
+
+Dans le Controller qui affiche `base.html.twig`, 
+modifier le code de manière à ce que sa route ressemble à ceci : 
+
+```php 
+    /**
+     * @Route("/{reactRouting}", name="homepage", defaults={"reactRouting": null})
+     */
+    public function base(): Response
+    {
+        return $this->render('base.html.twig');
+    }
+```
+
+Cela permet d'afficher la page `base.html.twig` peu importe l'adresse sur laquelle on se trouve. 
+
+### Etape , autoriser les CORS
+
+Les cors sont des requêtes qui viennent d'une autre source, ici elles viennent de l'application React, donc il faut les 
+autoriser. Pour cela, installer :
+
+`composer require cors`.
+Plus d'informations [ici](https://github.com/nelmio/NelmioCorsBundle).
+
+### Etape , Installer le système de route sur votre application React 
+
+Consulter la documentation ici : https://reactrouter.com/web/guides/quick-start
+
+Installer react router :
+
+`npm install react-router-dom`
+
+#### Utilisation basique du router 
+
+```js
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <nav> {/* Il s'agit de la navigation */}
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About /> {/* Considérez que About est la page /about, c'est un composant entier !*/}
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+```
+
+
+Il est désormais possible d'utiliser `fetch` en utilisant une route de type `http://localhost/api/maRoute`. 
