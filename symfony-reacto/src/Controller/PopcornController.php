@@ -7,6 +7,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class PopcornController
+ * @package App\Controller
+ */
 class PopcornController extends AbstractController
 {
     /**

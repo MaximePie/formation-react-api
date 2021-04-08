@@ -128,7 +128,7 @@ Les routes qui fournissent les données seront sous la forme `/api/maRoute`
 
 Cela permet à Symfony de faire la différence entre les deux. 
 
-### Etape 1, autoriser la navigation côté back
+### Etape 2, autoriser la navigation côté back
 
 Dans le Controller qui affiche `base.html.twig`, 
 modifier le code de manière à ce que sa route ressemble à ceci : 
@@ -145,7 +145,7 @@ modifier le code de manière à ce que sa route ressemble à ceci :
 
 Cela permet d'afficher la page `base.html.twig` peu importe l'adresse sur laquelle on se trouve. 
 
-### Etape , autoriser les CORS
+### Etape 3, autoriser les CORS
 
 Les cors sont des requêtes qui viennent d'une autre source, ici elles viennent de l'application React, donc il faut les 
 autoriser. Pour cela, installer :
@@ -153,7 +153,7 @@ autoriser. Pour cela, installer :
 `composer require cors`.
 Plus d'informations [ici](https://github.com/nelmio/NelmioCorsBundle).
 
-### Etape , Installer le système de route sur votre application React 
+### Etape 4, Installer le système de route sur votre application React 
 
 Consulter la documentation ici : https://reactrouter.com/web/guides/quick-start
 

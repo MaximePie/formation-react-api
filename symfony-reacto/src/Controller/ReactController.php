@@ -9,9 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ReactController extends AbstractController
 {
     /**
-     * @Route("/", name="react")
+     * @Route("/{reactRouting}", name="homepage", defaults={"reactRouting": null})
      */
-    public function index(): Response
+    public function base(): Response
     {
         return $this->render('base.html.twig');
     }
