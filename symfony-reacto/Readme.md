@@ -241,6 +241,10 @@ Dans votre `composer.json`, ajouter les lignes suivantes dans la zone de `requir
 }
 ```
 
+Installer le package `cors`. 
+
+`composer require cors`
+
 ### Create 
 
 Pour créer une entité. Cela se fait en deux étapes. 

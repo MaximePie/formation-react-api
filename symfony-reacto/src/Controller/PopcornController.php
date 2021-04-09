@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PopcornController extends AbstractController
 {
     /**
-     * @Route("/popcorn", name="popcorn")
+     * @Route("/api/popcorn", name="popcorn")
      */
     public function index(): Response
     {
@@ -28,5 +29,21 @@ class PopcornController extends AbstractController
 //        $users = $this->repository->findAll();
 //
 //        return new JsonResponse($users);
+    }
+
+    /**
+     * @Route("/api/popcorn/create", name="popcorn")
+     */
+    public function create(Request $request): Response
+    {
+        $content = $request->getContent();
+        $jsonParameters = json_decode($content, true);
+        $name = $jsonParameters['name'];
+        $taste = $jsonParameters['taste'];
+
+        return new JsonResponse([
+            'name' => $name,
+            'Tasty' => $taste,
+        ]);
     }
 }

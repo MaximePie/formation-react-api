@@ -2,6 +2,7 @@ import React from "react";
 import MielPage from "./components/pages/MielPage"
 import CreateMielPage from "./components/pages/CreateMielPage"
 import PopcornPage from "./components/pages/PopcornPage"
+import CreatePopcornPage from "./components/pages/CreatePopcornPage"
 import Home from "./components/pages/Home";
 
 import {
@@ -23,11 +24,14 @@ export default class App extends React.Component {
             <Route path='/miel'>
               <MielPage/>
             </Route>
-            <Route path='/miel/create'>
+            <Route path='/createMiel'>
               <CreateMielPage/>
             </Route>
             <Route path='/popcorn'>
               <PopcornPage/>
+            </Route>
+            <Route path='/createPopcorn'>
+              <CreatePopcornPage/>
             </Route>
           </Switch>
           {/*<Footer/>*/}
