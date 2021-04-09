@@ -1,4 +1,5 @@
 import React from 'react';
+import { port } from "../../envjs";
 
 export default class MielPage extends React.Component {
 
@@ -26,8 +27,8 @@ export default class MielPage extends React.Component {
   }
 
   fetchMiels = () => {
+    console.log(port);
     fetch('http://localhost:8000/api/miel').then(response => response.json()).then(response => {
-      console.log(response);
       this.setState({
         miels: response.data,
       })

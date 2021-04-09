@@ -223,3 +223,89 @@ function Users() {
 
 
 Il est désormais possible d'utiliser `fetch` en utilisant une route de type `http://localhost/api/maRoute`. 
+
+
+## Créer un CRUD avec React et Symfony 
+
+(Optionnel), vous pouvez télécharger l'application [Postman](https://www.postman.com/) pour vous faciliter la tâche. 
+
+Dans votre `composer.json`, ajouter les lignes suivantes dans la zone de `require` : 
+
+```json
+{
+  "require": {
+    /* ... */
+    "ext-json": "*",
+    "ext-http": "*"
+  }
+}
+```
+
+### Create 
+
+Pour créer une entité. Cela se fait en deux étapes. 
+
+#### Depuis le Back
+
+Accueillir les paramètres de la requête avec json_decode, décodez-les, et utilisez-les pour modifier vos entitiés en base.
+
+```php
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/api/miel/create", name="create-miel")
+     */
+    public function createMiel(Request $request): Response
+    {
+        $content = $request->getContent();
+        $jsonParameters = json_decode($content, true);
+        $name = $jsonParameters['name']; // 'name' et 'price' sont les champs envoyés depuis CreateMielPage dans la méthode submitForm
+        $price = $jsonParameters['price'];
+
+        // Faire ce que vous voulez des paramètres, stockez en base, ... etc.
+
+        // Envoyez une réponse si vous le souhaitez.
+        return new JsonResponse($jsonParameters);
+    }
+
+```
+
+#### Depuis le Front 
+
+Créer un formulaire `html` dans votre composant React, et des states pour chaque champ. 
+
+Créez une fonction submit qui permette d'envoyer les données au serveur via une méthode POST
+
+```js
+  /**
+   * Envoie les données au back-office avec la méthode POST en se basant sur les valeurs qui sont dans le state
+   */
+  submitForm() {
+    fetch('localhost:8000/api/miel/create',
+      { // Ceci est un objet qui permet de renseigner tous les détails de la requête
+        headers: { // Garder toujours les mêmes headers
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST", // POST, PUT, ou DELETE en fonction des besoins
+        body: JSON.stringify({
+          // Cet objet contient tous nos paramètres
+          name: this.state.name,
+          price: this.state.price,
+        })
+      }
+    )
+  }
+
+```
+
+
+
+#### Avec PostMan 
+
+Créer une nouvelle requête de type POST avec les détails suivants : 
+![image](https://user-images.githubusercontent.com/16031936/114188056-00cc8d80-9949-11eb-9f17-be3c9ca2a7d6.png)
+
+Puis remplir le formulaire dans l'onglet Body
+![image](https://user-images.githubusercontent.com/16031936/114188120-180b7b00-9949-11eb-9a3c-a79e2bb21667.png)
+

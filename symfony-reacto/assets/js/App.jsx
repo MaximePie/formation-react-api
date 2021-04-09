@@ -1,12 +1,13 @@
 import React from "react";
-import MielPage from "./components/MielPage"
-import PopcornPage from "./components/PopcornPage"
-import Home from "./components/Home";
+import MielPage from "./components/pages/MielPage"
+import CreateMielPage from "./components/pages/CreateMielPage"
+import PopcornPage from "./components/pages/PopcornPage"
+import Home from "./components/pages/Home";
 
 import {
   BrowserRouter, NavLink, Route, Switch
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/molecules/Navbar";
 
 export default class App extends React.Component {
   render() {
@@ -21,6 +22,9 @@ export default class App extends React.Component {
             </Route>
             <Route path='/miel'>
               <MielPage/>
+            </Route>
+            <Route path='/miel/create'>
+              <CreateMielPage/>
             </Route>
             <Route path='/popcorn'>
               <PopcornPage/>
