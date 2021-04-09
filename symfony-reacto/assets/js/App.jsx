@@ -4,10 +4,9 @@ import PopcornPage from "./components/PopcornPage"
 import Home from "./components/Home";
 
 import {
-  BrowserRouter,
-  Route,
-  NavLink,
+  BrowserRouter, NavLink, Route, Switch
 } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 export default class App extends React.Component {
   render() {
@@ -15,21 +14,19 @@ export default class App extends React.Component {
       <BrowserRouter>
         <div>
           <h2>Ma super app</h2>
-          <div>
-            <NavLink to="/home">Accueil</NavLink>
-            <NavLink to="/miel">miel</NavLink>
-            <NavLink to="/popcorn">popcorn</NavLink>
-            <a href="https://reactrouter.com/web/api/NavLink">Documentation Navlink</a>
-          </div>
-          <Route path='/home'>
-            <Home/>
-          </Route>
-          <Route path='/miel'>
-            <MielPage/>
-          </Route>
-          <Route path='/popcorn'>
-            <PopcornPage/>
-          </Route>
+          <Navbar/>
+          <Switch>
+            <Route path='/' exact>
+              <Home/>
+            </Route>
+            <Route path='/miel'>
+              <MielPage/>
+            </Route>
+            <Route path='/popcorn'>
+              <PopcornPage/>
+            </Route>
+          </Switch>
+          {/*<Footer/>*/}
         </div>
       </BrowserRouter>
     )
