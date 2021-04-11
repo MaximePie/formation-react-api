@@ -1,3 +1,10 @@
+## Pour lancer le projet rapidement : 
+
+Téléchargez le projet : `git clone https://github.com/MaximePie/formation-react-api.git && cd symfony-reacto`
+Installez le projet : `composer install && npm install`
+Lancez le projet serveur : `symfony server:start`
+Lancez le projet front dans une autre console, sans éteindre le serveur `npm run watch`
+
 ## Installation 
 
 Depuis le dossier racine de votre projet 
