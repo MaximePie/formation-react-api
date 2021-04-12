@@ -13,8 +13,9 @@ import './styles/app.css';
 import React from "react";
 import ReactDOM from 'react-dom';
 import App from "./js/App";
+import MielPage from "./js/components/pages/MielPage";
 
 // start the Stimulus application
 // import './bootstrap';
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<MielPage/>, document.getElementById('root'));
