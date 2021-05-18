@@ -3,7 +3,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 
 // Chargement du composant React représentant l'application
-import { App } from './components/App';
+// ...
 
 /*
  * Il est possible également de "charger" le CSS comme si c'était du JavaScript
@@ -15,10 +15,11 @@ import { App } from './components/App';
  *
  */
 import './index.css';
+import Agenda from "./components/Agenda";
 
 
 // Démarrage de React : il faut donner le composant React racine et son emplacement dans le DOM.
 ReactDOM.render(
-    <App />,                                // Quel est le premier composant ?
+  <Agenda/>,                             // Quel est le premier composant ?
     document.getElementById('react-symfony-root')   // Où démarrer React dans le DOM ?
 );

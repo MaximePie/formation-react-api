@@ -1,0 +1,68 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.App {
+  padding: 1rem;
+}
+
+.SecondaryButton {
+  border: 1px solid #d0d0d0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  height: 32px;
+  background-color: white;
+
+  color: #8a8a8a;
+  font-size: 1.1em;
+
+  cursor: pointer;
+}
+
+.SecondaryButtonBig {
+  height: 40px;
+}
+
+.SecondaryButtonDisabled {
+  color: #d0d0d0;
+  background-color: #8a8a8a;
+  pointer-events: none;
+}
+
+.PrimaryButton {
+  background-color: #2c3dd6;
+  width: 150px;
+  color: #d2d2d2;
+  padding: 4px 8px;
+  margin: 1em;
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+}
+
+.PrimaryButton--big {
+  width: 200px;
+  height: 40px;
+}
+
+.PrimaryButton--disabled {
+  background-color: #8a8a8a;
+  pointer-events: none;
+}
+
+.NidHamster {
+  border: solid;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
